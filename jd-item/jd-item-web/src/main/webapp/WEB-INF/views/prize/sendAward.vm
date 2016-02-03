@@ -1,0 +1,122 @@
+#set($module = 3)
+#set($menuId = 1325)
+#set($layout="/WEB-INF/vm/layout/noframe.vm")
+#parse("common/menu_shop.vm")
+
+#set($leftTableIndex=4)
+#set($title="派奖单管理")
+<div id="zsContent" data-ui="u-hover|.icon">
+    <div class="filter-box">
+        <form id="saleform">
+            <table>
+                <tbody>
+                <tr>
+                    <td>
+                        <label for="productSN">商品编码</label>
+                        <input type="text" id="productSN" name="jWareId" onblur="numonly(this)"  maxlength="20" value="" class="u-w118"/>
+                        <span class="icon tip field-tip pr"><span class="help-content">京东系统生成的商品编码，商品级别唯一标识。</span></span>
+                    </td>
+                    <td>
+                        <label for="jdSKU">京东SKU</label>
+                        <input type="text" id="jdSKU" name="jSkuId" onblur="numonly(this)"  maxlength="20" class="u-w118"/>
+                        <span class="icon tip field-tip pr"><span class="help-content">京东系统生成的SKU编码，商品链接尾部数字编号即为京东SKU。</span></span>
+                    </td>
+                    <td style="display:none">
+                        <label for="productItemNum">商品货号</label>
+                        <input type="text" id="productItemNum"  maxlength="20" name="outerId" class="u-w118"/>
+                        <span class="icon tip field-tip pr"><span style="right:0;left:auto;" class="help-content">商家系统中自己的商品货号。</span></span>
+                    </td>
+                    <td id="jdPrice">
+                        <label for="jdPrice">京东库存</label>
+                        <input type="text" name="quantityFrom"  onblur="numonly(this)"   maxlength="12" class="u-w50" value=""/>
+                        <span>-</span>
+                        <input type="text" name="quantityEnd"  onblur="numonly(this)"   maxlength="12" class="u-w50"  value=""/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="button-group">
+                <input type="button" value="查询" data-op="dosearch" class="button submit-button"/>
+                <input type="reset" value="重置" class="button reset-button"/>
+            </div>
+        </form>
+    </div>
+    <div class="data-grid mt10">
+        <table class="product-list">
+            <colgroup>
+                <col style="width: 200px;"/>
+                <col style="width: 200px;"/>
+                <col style="display:none"/>
+                <col style=""/>
+                <col style=""/>
+                <col style=""/>
+                <!-- <col style=""/> -->
+            </colgroup>
+            <thead>
+            <tr>
+                <th class="first">京东SKU</th>
+                <th>商品编码</th>
+                <th  style="display:none">商品货号</th>
+                <th>商品名称</th>
+                <th>销售属性 </th>
+                <th class="last">库存数</th>
+            </tr>
+            </thead>
+            <tbody id="j_product_con">
+
+            </tbody>
+        </table>
+        <div class="m clearfix k-page J_pageNav"></div>
+    </div>
+
+    <script id="j_product_tpl" type="x-handlebars-template">
+        {{#product}}
+        <tr data-jdstock="{{quantity}}">
+            <td>
+                {{jSkuId}}
+            </td>
+            <td style="word-break:break-all">
+                {{jWareId}}
+            </td>
+            <td  style="display:none">
+                {{outerId}}
+            </td>
+            <td>
+                {{wareTitle}}
+            </td>
+            <td>
+                {{saleSetting}}
+            </td>
+            <td>
+                {{quantity}}
+            </td>
+        </tr>
+        {{/product}}
+    </script>
+    <script>
+        seajs.use('/js/stock',function(app){
+            app.init();
+        })
+
+        function numonly(options){
+
+            var a=new RegExp("^[0-9]*$");
+            if (!a.test(options.value)) {
+                window.confirm("只能输入数字");
+                jQuery(options).css("border", "solid 1px #f00");
+                jQuery(options).attr("value", "");
+                $("#productName").val("");
+                return;
+            }
+            jQuery(options).css("border", "");
+
+        }
+
+
+        function regSort(msg){
+            var a=new RegExp("^[a-zA-Z_0-9\u4e00-\u9fa5]*$");
+            return a.test(msg);
+        }
+
+    </script>
+</div>
