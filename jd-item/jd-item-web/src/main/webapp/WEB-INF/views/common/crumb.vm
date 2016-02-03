@@ -1,5 +1,4 @@
-#* @vtlvariable name="homeModule" type="com.jd.common.web.url.UrlBuilder" *#
-#* @vtlvariable name="shopModule" type="com.jd.common.web.url.UrlBuilder" *#
+
 <div class="shop_main">
     <p class="curr_position">您当前所在位置<span class="bu"> &gt; </span><a href="$!shopModule.forPath("/").build()">商家后台</a><span class="bu"> &gt; </span> <a
             href="$!homeModule.forPath("/jmiWare/initWareListUsed").build()">商品管理</a><span class="bu"> &gt; </span>$!title</p>
