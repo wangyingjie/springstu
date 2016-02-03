@@ -7,7 +7,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>jd-itemshop-web</artifactId>
+    <artifactId>jd-item-web</artifactId>
     <packaging>war</packaging>
     <name>jd-item-web</name>
     <properties>
