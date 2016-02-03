@@ -18,7 +18,6 @@
     <import resource="spring-config-datasource-druid.xml"/>
     <import resource="spring-config-dao.xml"/>
     <import resource="spring-config-util.xml"/>
-    <import resource="spring-config-authen.xml"/>
     <import resource="spring-config-web.xml"/>
 
 </beans>

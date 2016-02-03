@@ -21,7 +21,6 @@
           class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
             <list>
-                <ref bean="stringHttpMessageConverter"/>
                 <ref bean="fastJsonConverter"/>
             </list>
         </property>
@@ -30,13 +29,6 @@
 
     <!--处理静态的servlet请求，不进入拦截器-->
     <mvc:default-servlet-handler default-servlet-name="default"/>
-
-    <!-- JSR-303 support will be detected on classpath and enabled automatically -->
-    <mvc:annotation-driven validator="validator">
-        <mvc:message-converters register-defaults="true">
-            <ref bean="stringHttpMessageConverter"/>
-        </mvc:message-converters>
-    </mvc:annotation-driven>
 
     <!-- 配置velocity引擎 -->
     <bean id="velocityConfigurer"
@@ -61,7 +53,6 @@
         <property name="dateToolAttribute" value="dateTool"/>
         <property name="numberToolAttribute" value="numberTool"/>
         <!-- Merge urlBuilderMap to view context for convenience. You can put your tools which must be thread safe. -->
-        <property name="attributesMap" ref="_urlBuilderMap"/>
         <property name="contentType" value="text/html;charset=UTF-8"/>
         <property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml"/>
         <!--toolbox配置文件路径-->
@@ -90,18 +81,6 @@
             <list>
                 <!-- for application/json -->
                 <bean class="com.alibaba.fastjson.support.spring.FastJsonJsonView"/>
-            </list>
-        </property>
-    </bean>
-
-
-    <!--字符串处理转换-->
-    <bean id="stringHttpMessageConverter" class="com.jd.treasure.service.common.UTF8StringHttpMessageConverter">
-        <property name="supportedMediaTypes">
-            <list>
-                <value>text/plain;charset=UTF-8</value>
-                <value>application/json;charset=UTF-8</value>
-                <value>text/html;charset=UTF-8</value>
             </list>
         </property>
     </bean>
