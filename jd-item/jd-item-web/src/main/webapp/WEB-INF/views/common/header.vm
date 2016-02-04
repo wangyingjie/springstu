@@ -10,7 +10,7 @@
             <li><a target="_blank" href="http://kuaiche.jd.com/"><i class="i-express"></i><span>京东快车</span></a></li>
             <li><a target="_blank" href="http://mjbbs.jd.com/forum.php"><i class="i-forum"></i><span>卖家论坛</span></a></li>
         </ul>
-        <div id="logo"><a title="京东商家后台" href="#">京东商家后台</a></div>
+        <div id="logo"><a title="商家后台" href="#">商家后台</a></div>
         <div id="nav">
             <ul>
                 <li><a href="#"><span>首页</span></a></li>
