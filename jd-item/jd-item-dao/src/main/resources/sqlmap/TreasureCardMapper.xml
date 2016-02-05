@@ -30,4 +30,16 @@
           #{itemType,jdbcType=TINYINT}, #{yn,jdbcType=TINYINT}, now())
     </insert>
 
+    <insert id="batchInsert" parameterType="java.util.List">
+        insert into treasure_card (id, item_id, vender_id, sort_id, unique_id,
+        card_number, card_password, status,
+        item_type, yn, created)
+        values
+        <foreach collection="list" item="card" index="index" separator=",">
+            (#{card.id}, #{card.itemId}, #{card.venderId}, #{card.sortId}, #{card.uniqueId},
+            #{card.cardNumber}, #{card.cardPassword}, #{card.status},
+            #{card.itemType}, #{card.yn}, now())
+        </foreach>
+    </insert>
+
 </mapper>
