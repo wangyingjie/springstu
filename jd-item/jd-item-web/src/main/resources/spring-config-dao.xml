@@ -5,7 +5,7 @@
        default-autowire="byName">
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="treasureDataSourcePool" />
+        <property name="dataSource" ref="treasureDataSource" />
         <property name="configLocation" value="classpath:mybatis-config.xml" />
     </bean>
 

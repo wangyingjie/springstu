@@ -33,7 +33,7 @@ public class TestTreasureCardDao {
         List<TreasureCard> cardList = Lists.newArrayList();
         for (long i=0; i<2; i++) {
             TreasureCard card = new TreasureCard();
-            card.setId(Long.valueOf(new Random().nextInt()));
+            //card.setId(Long.valueOf(new Random().nextInt()));
             card.setItemId(i);
             card.setItemType(Integer.valueOf(100));
             card.setCreated(new Date());
