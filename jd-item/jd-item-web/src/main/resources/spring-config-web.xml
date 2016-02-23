@@ -10,7 +10,10 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 
-    <tx:annotation-driven />
+    <!--事务标签配置-->
+    <tx:annotation-driven/>
+    <!--mode="aspectj" 是以Aop为基础的事务   mode="proxy" 两种模式 -->
+    <!--<tx:annotation-driven transaction-manager="transactionManager" mode="aspectj"/>-->
 
     <context:component-scan base-package="com.jd.treasure*"/>
 
