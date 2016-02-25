@@ -2,6 +2,7 @@ package com.jd.treasureshop.web.com.jd.common;
 
 import org.junit.Test;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -27,5 +28,11 @@ public class CoolDemo {
             }
         }
         System.out.println(tokens);
+    }
+
+    @Test
+    public void testClazzPath() {
+        InputStream in = CoolDemo.class.getClassLoader().getResourceAsStream("dbroute.properties");
+        System.out.println();
     }
 }
