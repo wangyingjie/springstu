@@ -1,0 +1,8 @@
+
+<div class="shop_main">
+    <p class="curr_position">您当前所在位置<span class="bu"> &gt; </span><a href="$!shopModule.forPath("/").build()">商家后台</a><span class="bu"> &gt; </span> <a
+            href="$!homeModule.forPath("/jmiWare/initWareListUsed").build()">商品管理</a><span class="bu"> &gt; </span>$!title</p>
+
+    <h3 class="k-h3">
+        $!title
+    </h3>

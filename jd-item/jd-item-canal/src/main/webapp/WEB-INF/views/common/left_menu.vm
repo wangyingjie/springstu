@@ -1,0 +1,48 @@
+<div id="body">
+    <div id="menu-2">
+        <div class="lev1 #if($!leftTableIndex == 1)  open #end">
+            <a href="$!homeModule.forPath("/jmiWare/initWareListUsed").build()" class="tit"><i class="i-item">&nbsp;</i><span>在售商品管理</span></a>
+        </div>
+        <div class="lev1 #if($!leftTableIndex == 2)  open #end">
+            <a href="$!homeModule.forPath("/category/selectCategory").build()" class="tit"><i class="i-item">&nbsp;</i><span>添加新商品</span></a>
+        </div>
+        <div class="lev1 #if($!leftTableIndex == 3)  open #end">
+            <a href="$!homeModule.forPath("/jmiWare/initWareListDown").build()" class="tit"><i class="i-item">&nbsp;</i><span>待售商品管理</span></a>
+        </div>
+        <div class="lev1 #if($!leftTableIndex == 4)  open #end">
+            <a href="$!homeModule.forPath("/stock/initSkuStockList").build()" class="tit"><i class="i-item">&nbsp;</i><span>库存管理</span></a>
+        </div>
+        <div class="lev1 #if($!leftTableIndex == 5)  open #end">
+            <a href="$!homeModule.forPath("/jmiWare/initWareListLose").build()" class="tit"><i class="i-item">&nbsp;</i><span>商品回收站</span></a>
+        </div>
+        <div class="lev1 #if($!leftTableIndex == 6)  open #end">
+            <a href="javascript:void(0);" class="tit"><i class="i-item">&nbsp;</i><span>图片管理</span></a>
+        </div>
+
+        <!--  /widget/lad/lad.vm -->
+        <!-- <div class="ad" track="OLD-FWTJ">
+            <ul>
+                <li>
+                    <a href="http://c.nfa.jd.com/adclick?keyStr=4cV6Z2Va+/yrkxzfhojfcFbo5K37P+B2spAynU3SEFUlkJADicrJJeq5CqzbuwebH8PXt6JkLwlyvy6FQaXRmYJWh+VpTBPBp6K8CYln0zha4eG9P+LQ+i7XDdn0nvJz46wKzPRnBQmONJijkFCcgpptymh5NaK/i2Lmxc52wDuOdIgW2vGRfjGRhtC8dWIIYqcW0HquGvFY7UymRwwblKhFRI51vnrOu20t+Xy80EVym2vSmgk0pmt94y+5ZGmW/htFu0NCyHNZ8xfKp3JDHI2uY/XBEMs2Whg4vjrOTpikaAP1/sMPzQkjY4GquCJk&amp;cv=2.0&amp;url=http://mall.jd.com/index-77247.html" target="_blank">
+                        <img src="http://img12.360buyimg.com/da/jfs/t1066/233/186704839/20326/bb92edb6/5508ea81N19da50ad.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="http://c.nfa.jd.com/adclick?keyStr=4cV6Z2Va+/yrkxzfhojfcFbo5K37P+B2spAynU3SEFUlkJADicrJJeq5CqzbuwebPQju2CXVdzdHaD5BlKfIrUW0GVY+1gAGyHStoKwJytGZI7p/OOlX6LABVlykvJwqdHbdeF56K6R44/w2hcC27LbYbJ1w+0xsnUYVD25O/7bNwcnaW0zdmPuAxdo2pas1QcMck5aBqMylwUutDsqsUsjE3Q/yRiJ0ujwBMNeeEE0awXv1xIduNnJoHttCbIv9+jS2tOARVrnDKJG1is9UmLh3/DbehNAG91zvqNdrY44=&amp;cv=2.0&amp;url=http://fw.jd.com/20.html" target="_blank">
+                        <img src="http://img13.360buyimg.com/da/jfs/t1231/309/1006365023/35956/a415aab4/556bf6caN7019e083.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="http://c.nfa.jd.com/adclick?keyStr=4cV6Z2Va+/yrkxzfhojfcFbo5K37P+B2spAynU3SEFUlkJADicrJJeq5CqzbuwebZNSwV1RzgrDjPEeDTRFEhUVcnggWb0scJUzlzrCuTW5a4eG9P+LQ+i7XDdn0nvJz1oEwRbUsC6tQMin70asoR9eQ0G555oTgfLmIHf0wHCpsqdtLqmGGVyA++dkrd/lWRrXMp2+ycxophKJuXxJAtM3BydpbTN2Y+4DF2jalqzVBwxyTloGozKXBS60OyqxSyMTdD/JGInS6PAEw154QTRrBe/XEh242cmge20Jsi/36NLa04BFWucMokbWKz1SYuHf8Nt6E0Ab3XO+o12tjjg==&amp;cv=2.0&amp;url=http://sale.jd.com/act/Q4GFPngZa2bISeAu.html?cpdad=1DLSUE" target="_blank">
+                        <img src="http://img12.360buyimg.com/da/jfs/t1252/155/189192279/12754/f66e1f5e/5508d6b8N98b1113a.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="http://c.nfa.jd.com/adclick?keyStr=4cV6Z2Va+/yrkxzfhojfcFbo5K37P+B2spAynU3SEFUlkJADicrJJeq5Cqzbuwebr1RPn+VYvMZbhnVZ3gGhFKEjtr5xgJGJWRMCLxwYE/da4eG9P+LQ+i7XDdn0nvJz46wKzPRnBQmONJijkFCcghV+E0MH8ddoG3thb24N2qOOdIgW2vGRfjGRhtC8dWIIYqcW0HquGvFY7UymRwwblKhFRI51vnrOu20t+Xy80EVym2vSmgk0pmt94y+5ZGmW/htFu0NCyHNZ8xfKp3JDHI2uY/XBEMs2Whg4vjrOTpikaAP1/sMPzQkjY4GquCJk&amp;cv=2.0&amp;url=http://mall.jd.com/index-30202.html" target="_blank">
+                        <img src="http://img13.360buyimg.com/da/jfs/t298/180/1399507315/43565/91bd4285/5438fb16N4b2ab7fe.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div> -->
+        <!--/ /widget/lad/lad.vm -->
+    </div>
