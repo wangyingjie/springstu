@@ -14,6 +14,7 @@
         <module>jd-item-web</module>
         <module>jd-item-canal</module>
         <module>jmi-order-canal</module>
+        <module>jd-item-worker</module>
     </modules>
 
     <name>jd-item</name>

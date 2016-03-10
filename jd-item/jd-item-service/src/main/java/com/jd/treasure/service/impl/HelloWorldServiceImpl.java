@@ -1,4 +1,4 @@
-package com.jd.treasure.service.com.jd.treasure.service.impl;
+package com.jd.treasure.service.impl;
 
 import com.jd.treasure.service.IHelloWorldService;
 import org.springframework.stereotype.Service;
