@@ -18,6 +18,7 @@ public class IndexController  {
     public ModelAndView index() {
 
         ModelAndView mv = new ModelAndView();
+        // FIXME: 2016/6/8
         mv.setViewName("index");
 
         return mv;
