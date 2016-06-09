@@ -12,6 +12,7 @@
         <module>jd-item-domain</module>
         <module>jd-item-service</module>
         <module>jd-item-web</module>
+        <module>jd-item-tbs</module>
         <module>jd-item-canal</module>
         <module>jmi-order-canal</module>
         <module>jd-item-worker</module>

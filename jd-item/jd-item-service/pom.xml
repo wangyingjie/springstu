@@ -58,6 +58,19 @@
             <version>2.5</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.ZooKeeper</groupId>
+            <artifactId>ZooKeeper</artifactId>
+            <version>3.4.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.taobao.pamirs.schedule</groupId>
+            <artifactId>tbschedule</artifactId>
+            <version>3.3.3.2</version>
+        </dependency>
+
+
     </dependencies>
 
 </project>

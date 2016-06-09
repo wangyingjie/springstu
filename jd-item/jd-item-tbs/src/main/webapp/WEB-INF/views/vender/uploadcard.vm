@@ -1,0 +1,120 @@
+#set($menuId = 3401)
+#set($layout="/WEB-INF/vm/layout/noframe.vm")
+#parse("common/header_top.vm")
+<script type="text/javascript" src="/js/ajaxfileupload.js"></script>
+<div class="qiangbao-wrap">
+    <div class="qb-title">卡密管理</div>
+    <div class="qb-search">
+        <form id="uploadCardSearch" name="uploadCardSearch" method="post" action="/vender/uploadcard/query">
+            <div class="infor">
+                <span>商品sku:</span>
+                <input type="text" name="productSku" value="$!{uploadCardQuery.productSku}" onkeyup="this.value=this.value.replace(/\D/g,'')"/>
+            </div>
+            <div class="qb-btn">
+                <a href="javascript:void(0)" onclick="checkData()" class="qb-btn-blue">查询</a>
+                <!--<a href="javascript:void(0)" onclick="resetForm()" class="qb-btn-gray">重置</a>-->
+            </div>
+        </form>
+    </div>
+    <div class="qb-list">
+        <table class="qb-table" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <th width="312">商品名称</th>
+                <th width="117">商品SKU</th>
+                <th width="114">已派发</th>
+                <th width="297">剩余库存</th>
+                <th>操作</th>
+            </tr>
+    #if($venderCardList && $venderCardList.size() > 0)
+        #foreach($venderCard in $venderCardList)
+            <tr>
+                <td>$!{venderCard.itemName}</td>
+                <td>$!{venderCard.productSku}</td>
+                <td>$!{venderCard.openedIssueAmount}</td>
+                <td>$!{venderCard.stock}</td>
+                <td><a href="javascript:void(0)" onclick="openAlert($!{venderCard.itemId}, '$!{venderCard.itemName}')" class="color47a6e6">添加库存</a></td>
+            </tr>
+        #end
+        </table>
+        <div class="qb-page">
+            #set($pageModule = $homeModule.forPath("/vender/uploadcard/query").put("productSku", "$!{uploadCardQuery.productSku}").put("itemId", "$!{uploadCardQuery.itemId}").put("venderId", "$!{venderId}").put("pageSize","$!uploadCardQuery.pageSize"))
+            #showPage($pageModule $venderCardList)
+        </div>
+    #else
+        </table>
+        <div class="no-result no-result2">没有相关数据显示！</div>
+    #end
+    </div>
+</div>
+<!-- 遮罩层 -->
+<div id="addStockAlert-cover"></div>
+<div id="addStockAlert" class="qiangbao-alert qiangbao-alert-add-stock" style="display: none;">
+    <div class="qba-title">
+        <a href="javascript:void(0)" onclick="hideAlert()" class="close"></a>
+        <span>添加库存</span>
+    </div>
+    <div class="add-stock">
+        <div class="project">抢宝项目：<em id="add-stock-item"></em></div>
+        <div class="upload">
+            <span class="title">上传卡密文件：</span>
+            <div class="upload-con">
+                <div class="file">
+                    <input type="file" name="file" id="file"/>
+                </div>
+                <div class="file-tips">仅支持txt格式，一行一条卡密记录，卡号与密码用英文逗号隔开</div>
+            </div>
+        </div>
+    </div>
+    <div class="qba-btn">
+        <input type="hidden" name="itemId"/>
+        <!--<a href="/download/卡密模板.csv">下载模板</a>-->
+        <a href="javascript:void(0)" onclick="addStock()">添加库存</a>
+    </div>
+</div>
+<script type="text/javascript">
+    var checkData = function () {
+        //校验查询数据
+
+        //提交表单
+        jQuery("#uploadCardSearch").submit();
+    }
+    var resetForm = function () {
+        document.getElementById("uploadCardSearch").reset();
+    }
+    var openAlert = function (itemId, itemName) {
+        jQuery('#addStockAlert-cover').addClass('qiangbao-alert-mark').css({"height":jQuery(document).height()});
+        var wrap = jQuery('#addStockAlert');
+        wrap.find('input[name=itemId]').val(itemId);
+        wrap.find('#add-stock-item').text(itemName);
+        wrap.show();
+    }
+    var hideAlert = function () {
+        jQuery("#addStockAlert").hide();
+        jQuery('#addStockAlert-cover').removeClass('qiangbao-alert-mark');
+    }
+    var addStock = function () {
+        var wrap = jQuery('#addStockAlert');
+        //wrap.find('a').addClass('doing');
+        var itemId = wrap.find('input[name=itemId]').val();
+        var url = '/vender/uploadcard/doaddstock?itemId=' + itemId;
+        jQuery.ajaxFileUpload({
+            url: url,
+            type : 'post',
+            secureuri: false,
+            fileElementId: "file",
+            dataType: "json",
+            success: function (data, status) {
+                if (!!data.result) {
+                    alert(data.result);
+                    jQuery("#addStockAlert").find('a').removeClass('doing');
+                } else {
+                    window.location.reload();
+                }
+            },
+            error: function (data, status, e) {
+                console.log(e);
+            }
+        });
+    }
+
+</script>

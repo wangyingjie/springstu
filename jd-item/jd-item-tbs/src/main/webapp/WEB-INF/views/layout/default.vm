@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+ #parse("common/header_top.vm") ##头部
+ #parse("common/header.vm") ##头部
+ #set($layout="/WEB-INF/vm/layout/noframe.vm")
+ #parse("common/crumb.vm") ## 面包屑
+ $screen_content
+
+</div> ## shop main 的结束div
+</div> ## body 的结束div
+
+</body>
+</html>
