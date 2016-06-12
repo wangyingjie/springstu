@@ -9,10 +9,23 @@ import com.taobao.pamirs.schedule.taskmanager.ScheduleTaskType;
 public class InitScheduleTask {
 
     // 创建任务调度DemoTask的基本信息
-    private  ScheduleTaskType baseTaskType;
+//    private  ScheduleTaskType baseTaskType;
 
-    private ScheduleStrategy scheduleStrategy;
+    public ScheduleStrategy scheduleStrategy = new ScheduleStrategy();
 
+
+    // 创建任务调度DemoTask的基本信息
+    public  ScheduleTaskType scheduleTaskType = new ScheduleTaskType();
+
+    public ScheduleTaskType getScheduleTaskType() {
+        return scheduleTaskType;
+    }
+
+    public void setScheduleTaskType(ScheduleTaskType scheduleTaskType) {
+        this.scheduleTaskType = scheduleTaskType;
+    }
+
+/*
     public ScheduleTaskType getBaseTaskType() {
         return baseTaskType;
     }
@@ -20,6 +33,7 @@ public class InitScheduleTask {
     public void setBaseTaskType(ScheduleTaskType baseTaskType) {
         this.baseTaskType = baseTaskType;
     }
+*/
 
     public ScheduleStrategy getScheduleStrategy() {
         return scheduleStrategy;

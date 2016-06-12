@@ -33,6 +33,12 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>WebTest</servlet-name>
+        <servlet-class>com.taobao.pamirs.schedule.WebInitial</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

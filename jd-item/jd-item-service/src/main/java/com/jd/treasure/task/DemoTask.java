@@ -11,7 +11,11 @@ import java.util.List;
 /**
  * Created by wangyingjie1 on 2016/6/9.
  */
-public class DemoTask implements IScheduleTaskDealSingle<TBTask>, IScheduleTaskDeal<TBTask> {
+public class DemoTask implements IScheduleTaskDealSingle<DemoTask>, IScheduleTaskDeal<DemoTask> {
+
+    private final int test = 10000;
+
+    public final String demoStr = "xxxx";
 
     /**
      * 数据采集
@@ -20,9 +24,13 @@ public class DemoTask implements IScheduleTaskDealSingle<TBTask>, IScheduleTaskD
      *                            eachFetchDataNum--采集任务数量
      */
     @Override
-    public List<TBTask> selectTasks(String taskParameter, String ownSign, int taskItemNum, List<TaskItemDefine> taskItemList,
-                                    int eachFetchDataNum) throws Exception {
-        List<TBTask> taskList = new LinkedList<TBTask>();
+    public List<DemoTask> selectTasks(String taskParameter, String ownSign, int taskItemNum, List<TaskItemDefine> taskItemList,
+                                      int eachFetchDataNum) throws Exception {
+
+        System.out.println("taskParameter====>" + taskParameter + " \t ownSign====>" + ownSign +
+                " \t taskItemNum====>" + taskItemNum + " \t eachFetchDataNum====>" + eachFetchDataNum + " \t taskItemList====>" + taskItemList);
+
+        List<DemoTask> taskList = new LinkedList<DemoTask>();
         //客户端根据条件进行数据采集start
 
         //客户端根据条件进行数据采集end
@@ -38,8 +46,13 @@ public class DemoTask implements IScheduleTaskDealSingle<TBTask>, IScheduleTaskD
      * 数据处理
      */
     @Override
-    public boolean execute(TBTask task, String ownSign) throws Exception {
+    public boolean execute(DemoTask task, String ownSign) throws Exception {
         //客户端pop任务进行处理start
+
+
+        System.out.println(task + "------" + ownSign);
+        System.out.println("task====>" + task + " \t ownSign====>" + ownSign);
+
 
         //客户端pop任务进行处理end
         return true;

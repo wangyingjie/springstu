@@ -21,5 +21,6 @@
     <import resource="spring-config-web.xml"/>
     <import resource="spring-config-aop.xml"/>
     <import resource="spring-config-worker.xml"/>
+    <import resource="spring-config-tbs.xml"/>
 
 </beans>
