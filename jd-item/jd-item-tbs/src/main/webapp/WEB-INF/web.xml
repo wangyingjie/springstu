@@ -38,6 +38,10 @@
         <servlet-class>com.taobao.pamirs.schedule.WebInitial</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>WebTest</servlet-name>
+        <url-pattern>/WebTest</url-pattern>
+    </servlet-mapping>
 
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>

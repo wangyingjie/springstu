@@ -1,6 +1,5 @@
 package com.jd.treasure.task;
 
-import com.taobao.pamirs.schedule.IScheduleTaskDeal;
 import com.taobao.pamirs.schedule.IScheduleTaskDealSingle;
 import com.taobao.pamirs.schedule.TaskItemDefine;
 
@@ -11,7 +10,7 @@ import java.util.List;
 /**
  * Created by wangyingjie1 on 2016/6/9.
  */
-public class DemoTask implements IScheduleTaskDealSingle<DemoTask>, IScheduleTaskDeal<DemoTask> {
+public class DemoTask implements IScheduleTaskDealSingle<DemoTask> {
 
     private final int test = 10000;
 
@@ -32,6 +31,9 @@ public class DemoTask implements IScheduleTaskDealSingle<DemoTask>, IScheduleTas
 
         List<DemoTask> taskList = new LinkedList<DemoTask>();
         //客户端根据条件进行数据采集start
+        for (int i=0; i<5; i++){
+            taskList.add(new DemoTask());
+        }
 
         //客户端根据条件进行数据采集end
         return taskList;

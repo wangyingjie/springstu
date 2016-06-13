@@ -15,7 +15,7 @@
 
 
 
-
+    <!--Bean 加载的时候会执行 init 方法-->
     <bean id="scheduleManagerFactory" class="com.taobao.pamirs.schedule.strategy.TBScheduleManagerFactory" init-method="init">
         <property name="zkConfig">
             <map>
